@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>session_login_tracker</id>
+	<name>Session Login Tracker</name>
+	<description>Application to log used sessions when authenticated as well as detect reuse.</description>
+	<licence>AGPL</licence>
+	<author>Lukas Reschke</author>
+	<requiremin>6.0</requiremin>
+	<types>
+		<filesystem/>
+	</types>
+	<shipped>true</shipped>
+</info>

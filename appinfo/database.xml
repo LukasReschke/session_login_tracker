@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<database>
+	<name>*dbname*</name>
+	<create>true</create>
+	<overwrite>false</overwrite>
+	<charset>utf8</charset>
+	<table>
+		<name>*dbprefix*login_sessions</name>
+		<declaration>
+			<field>
+				<name>user_id</name>
+				<type>text</type>
+				<notnull>true</notnull>
+				<length>256</length>
+			</field>
+			<field>
+				<name>session_id</name>
+				<type>text</type>
+				<length>512</length>
+			</field>
+			<index>
+				<name>session_pKey</name>
+				<primary>true</primary>
+				<field>
+					<name>session_id</name>
+					<sorting>ascending</sorting>
+				</field>
+			</index>
+		</declaration>
+	</table>
+	
+</database>
