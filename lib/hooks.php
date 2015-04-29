@@ -33,9 +33,10 @@ class Hooks {
 	 */
 	public static function postLogin($params) {
 		$dbConnection = \OC::$server->getDatabaseConnection();
-		$query = $dbConnection->prepare('INSERT INTO `*PREFIX*login_sessions` (`user_id`, `session_id`) VALUES(?, ?)');
+		$query = $dbConnection->prepare('INSERT INTO `*PREFIX*login_sessions` (`user_id`, `session_id`, `timestamp`) VALUES(?, ?, ?)');
 		$query->bindValue(1, $params['uid']);
 		$query->bindValue(2, session_id());
+		$query->bindValue(3, time());
 		try {
 			$query->execute();
 		} catch (\Exception $e) {
