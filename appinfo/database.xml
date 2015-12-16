@@ -16,7 +16,7 @@
 			<field>
 				<name>session_id</name>
 				<type>text</type>
-				<length>512</length>
+				<length>255</length>
 			</field>
 			<field>
 				<name>timestamp</name>
