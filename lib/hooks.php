@@ -65,7 +65,9 @@ class Hooks {
 		$query->bindValue(4, $info);
 		try {
 			$query->execute();
+			$dbConnection->close();
 		} catch (\Exception $e) {
+			$dbConnection->close();
 			$logger = \OC::$server->getLogger();
 			$logger->critical($e->getMessage(), array('app' => 'session_login_tracker'));
 			$logger->critical($info, array('app' => 'session_login_tracker'));
