@@ -69,6 +69,18 @@ class Hooks {
 			$logger = \OC::$server->getLogger();
 			$logger->critical($e->getMessage(), array('app' => 'session_login_tracker'));
 			$logger->critical($info, array('app' => 'session_login_tracker'));
+			$sessionId = session_id();
+			if (function_exists('memcache_connect')) {
+				$sessionKey = 'memc.sess.key.' . $sessionId;
+				$memcache = memcache_connect('memcached.example.org', 11211);
+				if ($memcache !== false) {
+					$value = memcache_get($memcache, $sessionKey);
+					memcache_close($memcache);
+				} else {
+					$value = 'Could not connect to memcache';
+				}
+				$logger->critical("Memcache session value for ID $sessionKey: $value");
+			}
 			http_response_code(500);
 			session_destroy();
 			exit();
