@@ -25,6 +25,11 @@
 				<notnull>true</notnull>
 				<length>4</length>
 			</field>
+			<field>
+				<name>info</name>
+				<type>text</type>
+				<length>255</length>
+			</field>
 			<index>
 				<name>session_pKey</name>
 				<primary>true</primary>
