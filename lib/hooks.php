@@ -33,8 +33,8 @@ class Hooks {
 	 */
 	public static function postLogin($params) {
 		$request = \OC::$server->getRequest();
-		$authorizationHeader = $request->server['HTTP_AUTHORIZATION'];
-		$userAgent = $request->server['HTTP_USER_AGENT'];
+		$authorizationHeader = isset($request->server['HTTP_AUTHORIZATION']) ? $request->server['HTTP_AUTHORIZATION'] : '';
+		$userAgent = isset($request->server['HTTP_USER_AGENT']) ? $request->server['HTTP_USER_AGENT'] : '';
 		$split = explode(' ', $authorizationHeader);
 		if(count($split) === 2) {
 			$decoded = base64_decode($split[1]);
